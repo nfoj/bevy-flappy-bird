@@ -1,19 +1,16 @@
 mod game;
 mod menu;
-mod window;
 
 use crate::game::GamePlugin;
-use crate::menu::GamePlugin;
+use crate::game::WindowPlugin;
+use crate::menu::MenuPlugin;
 
-use window::WindowPlugin;
-
-use bevy::app::App;
 use bevy::prelude::*;
 
 fn main() {
     App::new()
         .init_state::<AppState>()
-        .add_plugins((MenuPlugin, GamePlugin, WindowPlugin))
+        .add_plugins((WindowPlugin, MenuPlugin, GamePlugin))
         .run();
 }
 

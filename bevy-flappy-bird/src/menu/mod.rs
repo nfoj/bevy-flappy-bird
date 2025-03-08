@@ -12,7 +12,7 @@ impl Plugin for MenuPlugin {
     fn build(&self, app: &mut App) {
         app.add_systems(OnEnter(AppState::Main), setup_menu)
             .add_systems(OnExit(AppState::Main), cleanup_menu)
-            .add_system(Update, menu_update.run_if(in_menu));
+            .add_systems(Update, menu_update.run_if(in_menu));
     }
 }
 
