@@ -12,9 +12,7 @@ impl Plugin for BasePlugin {
     fn build(&self, app: &mut App) {
         app.add_systems(Startup, setup_base).add_systems(
             Update,
-            (move_bases, configure_bases)
-                .chain()
-                .run_if(check_base_state),
+            (move_bases, confine_bases).chain().run_if(check_base_state),
         );
     }
 }
@@ -38,7 +36,7 @@ pub fn setup_base(mut commands: Commands, asset_server: Res<AssetServer>) {
 pub fn confine_bases(mut query: Query<(&Base, &mut Transform)>) {
     for (_, mut transform) in query.iter_mut() {
         if transform.translation.x <= -BASE_WIDTH {
-            tranform.translation.x += BASE_WIDTH * 3.;
+            transform.translation.x += BASE_WIDTH * 3.;
         }
     }
 }

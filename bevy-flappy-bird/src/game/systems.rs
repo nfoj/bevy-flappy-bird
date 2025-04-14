@@ -1,4 +1,4 @@
-use crate::game::SimulationStatel;
+use crate::game::SimulationState;
 use crate::AppState;
 
 use bevy::prelude::*;

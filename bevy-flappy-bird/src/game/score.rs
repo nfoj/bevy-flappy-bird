@@ -2,7 +2,7 @@ use crate::game::systems::game_is_running;
 use crate::game::SimulationState;
 use crate::{AppState, SCREEN_HEIGHT};
 
-use bavy::prelude::*;
+use bevy::prelude::*;
 
 pub const CHAR_WIDTH: f32 = 24.;
 
@@ -42,7 +42,7 @@ pub fn update_score(
     asset_server: Res<AssetServer>,
     query: Query<Entity, With<ScoreText>>,
 ) {
-    if score.is_chaged() {
+    if score.is_changed() {
         for entity in query.iter() {
             commands.entity(entity).despawn();
         }
@@ -70,13 +70,13 @@ pub fn update_score(
             };
             commands.spawn((
                 Sprite {
-                    image: asset_serve.load(sprite),
+                    image: asset_server.load(sprite),
                     ..default()
                 },
                 Transform::from_xyz(x, SCREEN_HEIGHT / 2. - 56.0, 1.),
                 ScoreText {},
             ));
-            x += CHAR_WIDHT;
+            x += CHAR_WIDTH;
         }
     }
 }

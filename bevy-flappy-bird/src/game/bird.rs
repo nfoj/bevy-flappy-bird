@@ -48,11 +48,11 @@ pub fn setup_bird(mut commands: Commands, asset_server: Res<AssetServer>) {
     if random > 0.6 {
         bird_upflap = "sprites/redbird-upflap.png";
         bird_midflap = "sprites/redbird-midflap.png";
-        bird_downflap = "sprites/redbird-dowmflap.png";
+        bird_downflap = "sprites/redbird-downflap.png";
     } else if random > 0.3 {
-        bird_upflap = "sprites/yellow-upflap.png";
-        bird_midflap = "sprites/yellow-midflap.png";
-        bird_downflap = "sprites/yellow-downflap.png";
+        bird_upflap = "sprites/yellowbird-upflap.png";
+        bird_midflap = "sprites/yellowbird-midflap.png";
+        bird_downflap = "sprites/yellowbird-downflap.png";
     }
 
     commands.spawn((
@@ -60,14 +60,14 @@ pub fn setup_bird(mut commands: Commands, asset_server: Res<AssetServer>) {
             velocity: 0.,
             sprite_up: asset_server.load(bird_upflap),
             sprite_mid: asset_server.load(bird_midflap),
-            sprite_dowm: asset_server.load(bird_dowmflap),
+            sprite_down: asset_server.load(bird_downflap),
         },
         GameItem {},
         Sprite {
             image: asset_server.load(bird_midflap),
             ..default()
         },
-        Transform::from_xyz(BIRD_x, 0., 0.),
+        Transform::from_xyz(BIRD_X, 0., 0.),
     ));
 }
 

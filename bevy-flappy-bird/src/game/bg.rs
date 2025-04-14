@@ -36,7 +36,7 @@ pub fn setup_bg(mut commands: Commands, asset_server: Res<AssetServer>) {
     }
 }
 
-pub fn confine_bg(mut query: Query<(&background, &mut Transform)>) {
+pub fn confine_bg(mut query: Query<(&Background, &mut Transform)>) {
     for (_, mut transform) in query.iter_mut() {
         if transform.translation.x <= -BG_WIDTH {
             transform.translation.x += BG_WIDTH * 3.;
@@ -44,7 +44,7 @@ pub fn confine_bg(mut query: Query<(&background, &mut Transform)>) {
     }
 }
 
-pub fn move_bg(time: Res<Time>, mut query: Query<(Background, &mut Transform)>) {
+pub fn move_bg(time: Res<Time>, mut query: Query<(&Background, &mut Transform)>) {
     for (_, mut transform) in query.iter_mut() {
         transform.translation.x -= (GAME_SPEED / 2.) * time.delta_secs();
     }
