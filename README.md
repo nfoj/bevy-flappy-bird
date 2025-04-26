@@ -1,4 +1,4 @@
-## 🕹️ Bevy - Snake
+## 🕹️ Bevy - Flappy Bird
 
 ![Tela Principal](https://github.com/nfoj/bevy-flappy-bird/blob/main/img/bevy-flappy-bird.gif)
 
